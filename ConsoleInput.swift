@@ -17,7 +17,7 @@ public class ConsoleInput {
         return (string() as NSString).doubleValue
     }
     
-    static func boolean() -> Bool {
+    public static func boolean() -> Bool {
         var stringCompare: NSString = (string() as (NSString))
         if (stringCompare.isCaseInsensitiveLike("y")) {
             return true
