@@ -2,26 +2,28 @@
 
 import Foundation
 
-class ConsoleInput {
+public class ConsoleInput {
     //Main input source as string
     static func string() -> String {
         let string = (NSString(data:NSFileHandle.fileHandleWithStandardInput().availableData, encoding:NSUTF8StringEncoding))!
         return (stringInterpolationSegment: string.substringToIndex(string.length - 1))
     }
     
-    static func int() -> Int {
+    public static func int() -> Int {
         return string().toInt()!
     }
     
-    static func double() -> Double {
+    public static func double() -> Double {
         return (string() as NSString).doubleValue
     }
     
     static func boolean() -> Bool {
-        var string: NSString = (string() as (NSString))
-        if (string.isCaseInsensitiveLike("y")) {
+        var stringCompare: NSString = (string() as (NSString))
+        if (stringCompare.isCaseInsensitiveLike("y")) {
             return true
-        } else if (string.isCaseInsensitiveLike("n")) {
+        } else if (stringCompare.isCaseInsensitiveLike("n")) {
+            return false
+        } else {
             return false
         }
     }
